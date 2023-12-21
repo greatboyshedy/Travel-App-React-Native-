@@ -27,15 +27,16 @@ const Home = () => {
   const [data, setData] = useState(true);
   console.log(text);
 
-  const myApiKey = "caf6167829msh167d1852488d0c4p1aa5b8jsn1dcac9d0fa8a";
-  const myWifeApiKey ='83459a0254mshcb181699e1e67a5p13c703jsn11c23c5c95f5'
+  const myApiKey = "Add Your API key here";  
+  // You  can get from rapid Api
+  
 
   const getPlaces = async () => {
     const url = `https://trueway-geocoding.p.rapidapi.com/Geocode?address=${text}&language=en`;
     const options = {
       method: "GET",
       headers: {
-        "X-RapidAPI-Key": "caf6167829msh167d1852488d0c4p1aa5b8jsn1dcac9d0fa8a",
+        "X-RapidAPI-Key": "Add Your API key here",
         "X-RapidAPI-Host": "trueway-geocoding.p.rapidapi.com",
       },
     };
@@ -46,14 +47,12 @@ const Home = () => {
       setLon(result?.results[0]?.location?.lng);
       setLat(result?.results[0]?.location?.lat);
       setData(false);
-      console.log(lon);
-      console.log(lat);
     } catch (error) {
       console.error(error);
     }
     
   };
-  // getPlaces();
+  
 
   const cityData = async () => {
     const lt = lat ? lat :51.507222;
@@ -131,16 +130,14 @@ const Home = () => {
         }}
       >
         <TextInput
-          // value={text}
+          
           onChangeText={(x) => setTextInput(x)}
           placeholder="Search"
           style={{ height: 40, width: "85%", paddingLeft: 10 }}
         />
         <TouchableOpacity 
         onPress={getPlaces}
-        // onPress={() => {
-        //   navigation.navigate("Details")
-        // }}
+      
         >
           <AntDesign name="search1" size={24} color="#3C6072" />
         </TouchableOpacity>
